@@ -1,4 +1,7 @@
+import matplotlib.pyplot as plt
 import networkx as nx
+import pandas as pd
+import psycopg2
 
 
 def trim_degrees(g, degree=1):
