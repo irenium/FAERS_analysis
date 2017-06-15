@@ -25,7 +25,7 @@ def get_colors(g):
     return color_list
 
 def make_network_graph(ae_dict, degree_to_trim=1):
-    G=nx.MultiGraph()
+    G=nx.Graph()
     for ae, drug_list in ae_dict.iteritems():
         G.add_node(ae, node_type='AE')
         for idx, drug in enumerate(drug_list):
