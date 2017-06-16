@@ -21,6 +21,7 @@ def trim_degrees(g, degree=1):
             g2.remove_node(node)
     return g2
 
+
 def get_colors(g):
     """
     Dictionary key nodes are colored magenta, 
@@ -34,6 +35,7 @@ def get_colors(g):
         else:
             color_list.append('c')
     return color_list
+
 
 def make_network_graph(ae_dict, degree_to_trim=1):
     """
@@ -62,11 +64,11 @@ def plot_related_terms(term1, term2, term3, term4, term5):
     cur = con.cursor()
     cur.execute("""SELECT reac1.caseid, reac1.pt FROM reac1 \
             WHERE reac1.caseid IN (SELECT caseid FROM reac1 \
-            WHERE pt LIKE term1 OR \
-            pt LIKE term2 OR \
-            pt LIKE term3 OR \
-            pt LIKE term4 OR \
-            pt LIKE term5)""")
+            WHERE pt LIKE {} OR \
+            pt LIKE {} OR \
+            pt LIKE {} OR \
+            pt LIKE {} OR \
+            pt LIKE {})""".format(term1, term2, term3, term4, term5))
 
     pt_dict = {term1:[], term2:[], term3:[], term4:[], term5:[]}
     terms_to_add = []
